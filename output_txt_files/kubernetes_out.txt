@@ -1,0 +1,13 @@
+ubuntu@ip-172-31-45-125:~/DevOps_Microservices/project-ml-microservice-kubernetes$ sudo kubectl get pods
+NAME                                 READY   STATUS    RESTARTS   AGE
+prediction-service-8c54ccccd-lctv6   1/1     Running   0          47s
+ubuntu@ip-172-31-45-125:~/DevOps_Microservices/project-ml-microservice-kubernetes$ sudo ./run_kubernetes.sh
+kubectl run --generator=deployment/apps.v1 is DEPRECATED and will be removed in a future version. Use kubectl run --generator=run-pod/v1 or kubectl create instead.
+Error from server (AlreadyExists): deployments.apps "prediction-service" already exists
+NAME                                 READY   STATUS    RESTARTS   AGE
+prediction-service-8c54ccccd-lctv6   1/1     Running   0          58s
+
+/prediction-service 8000:80
+Forwarding from 127.0.0.1:8000 -> 80
+Forwarding from [::1]:8000 -> 80
+Handling connection for 8000
