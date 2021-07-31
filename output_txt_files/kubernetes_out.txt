@@ -1,13 +1,25 @@
-ubuntu@ip-172-31-45-125:~/DevOps_Microservices/project-ml-microservice-kubernetes$ sudo kubectl get pods
-NAME                                 READY   STATUS    RESTARTS   AGE
-prediction-service-8c54ccccd-lctv6   1/1     Running   0          47s
-ubuntu@ip-172-31-45-125:~/DevOps_Microservices/project-ml-microservice-kubernetes$ sudo ./run_kubernetes.sh
-kubectl run --generator=deployment/apps.v1 is DEPRECATED and will be removed in a future version. Use kubectl run --generator=run-pod/v1 or kubectl create instead.
-Error from server (AlreadyExists): deployments.apps "prediction-service" already exists
-NAME                                 READY   STATUS    RESTARTS   AGE
-prediction-service-8c54ccccd-lctv6   1/1     Running   0          58s
-
-/prediction-service 8000:80
+NAME                       READY   STATUS    RESTARTS   AGE
+predict-7d8564559b-vzfv4   1/1     Running   0          68s
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 231-779-307
+[2019-08-09 13:54:57,329] INFO in app: JSON payload:
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2019-08-09 13:54:57,349] INFO in app: Inference payload DataFrame:
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2019-08-09 13:54:57,362] INFO in app: Scaling Payload:
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2019-08-09 13:54:57,366] INFO in app: Prediction Output: [20.35373177134412]
+127.0.0.1 - - [09/Aug/2019 13:54:57] "POST /predict HTTP/1.1" 200 -
+===========================
 Forwarding from 127.0.0.1:8000 -> 80
 Forwarding from [::1]:8000 -> 80
 Handling connection for 8000

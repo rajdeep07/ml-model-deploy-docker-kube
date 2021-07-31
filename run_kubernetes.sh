@@ -14,6 +14,13 @@ kubectl run prediction-service --image=docker.io/${dockerpath} --port=8000
 # List kubernetes pods
 kubectl get pods
 
+# Step 5:
+# Save pod name and view logs
+output="$(kubectl get pods -o=name)"
+kubectl logs $output
+
+echo "==========================="
+
 # Step 4:
 # Forward the container port to a host
 kubectl port-forward deployments/prediction-service 8000:80
